@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-
+import Radium from 'radium';
 
 
 const PersonCard=(props)=>{
@@ -15,4 +15,4 @@ const PersonCard=(props)=>{
 }
 
 
-export default PersonCard;
+export default Radium(PersonCard);

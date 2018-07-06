@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
 import './App.css';
-
 
 
 // import Person from './Person/Person'
@@ -26,11 +26,11 @@ class App extends Component {
       ]
     })
   }
+
   showRecordshandler=()=>{
     let dowsShow=this.state.show;
     this.setState({show: !dowsShow })
   }
-  
 
   nameChangehandler=(event,personID)=>{
     //findIndex will return the index of matched person
@@ -47,9 +47,6 @@ class App extends Component {
     this.setState({
       person:persons
     })
-
-
-    
   }
 
   deleteHandlerHandler= personIndex=>{
@@ -69,7 +66,10 @@ class App extends Component {
       padding:"8px",
       cursor:"pointer",
       marginBottom:"20px",
-      marginRight:"20px"
+      marginRight:"20px",
+      ':hover':{
+        backgroundColor: "#a0a6ed"
+      }
     };
 
     let  person=null;
@@ -97,7 +97,6 @@ class App extends Component {
       <div className="App">
         <h1> Employees Detail</h1>
         <button style={btnShowHide} onClick={this.showRecordshandler}>Show Employees </button>
-        <button style={btnShowHide} onClick={this.addEmployeeHandler}>Add Employee</button>
         <div className="container">
           {person}
         </div>
@@ -106,10 +105,13 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
 
+
+//some useful concepts
 
 //pass fucntion as handler
+
 // <button onClick={this.changeNameHandler.bind(this,'raj','24')}>Click Me!</button>
 //         <Person click={this.changeNameHandler} age={this.state.person[0].age} name={this.state.person[0].name} />
 //         <Person/>
