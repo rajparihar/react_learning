@@ -56,6 +56,15 @@ class App extends Component {
     this.setState({person:allPersonData});
   }
   
+  //get data from network
+  // fetch('https://api.publicapis.org/entries')
+  //   .then(response => response.json())
+  //     .then(
+  //       json => {
+  //         data=json;
+  //         console.log('data ',data);  
+  //       }
+  //     )
 
   render() {
 
@@ -71,7 +80,10 @@ class App extends Component {
         backgroundColor: "#a0a6ed"
       }
     };
+    
+    let data={}; 
 
+    
     let  person=null;
 
     if(this.state.show){

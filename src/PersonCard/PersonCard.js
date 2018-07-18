@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Radium from 'radium';
 
-
 const PersonCard=(props)=>{
     return (
         <div className="box">
@@ -13,6 +12,5 @@ const PersonCard=(props)=>{
         </div>
     );
 }
-
 
 export default Radium(PersonCard);
