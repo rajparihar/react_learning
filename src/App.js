@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Radium from 'radium';
 import './App.css';
+import Promise from 'bluebird';
+import $ from "jquery";
 
 
 // import Person from './Person/Person'
 import PersonCard from './PersonCard/PersonCard';
 
-class App extends Component {
+class App extends PureComponent {
   
   state={
     person:[
@@ -66,7 +68,15 @@ class App extends Component {
   //       }
   //     )
 
+ 
+
+
   render() {
+
+    Promise.coroutine(function* () {
+      let dataFromNetwork=yield $.get('https://api.publicapis.org/entries');
+      console.log('dataFromNetwork ',dataFromNetwork);
+    })();
 
     let btnShowHide={
       backgroundColor:"white",
@@ -80,9 +90,6 @@ class App extends Component {
         backgroundColor: "#a0a6ed"
       }
     };
-    
-    let data={}; 
-
     
     let  person=null;
 
